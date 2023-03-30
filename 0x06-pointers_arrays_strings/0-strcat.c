@@ -8,22 +8,38 @@
  * Return: pointer to dest
  **/
 
-char *_strcat(char *dest, char *src)
-{
-	int i, j;
 
-	i = 0;
 
-	while (dest[i] != '\0')
-		i++;
+char *_strcat(char *dest, char *src) {
+    char *result = dest; 
 
-	for (j = 0; src[j] != '\0'; j++)
-	{
-		dest[i] = src[j];
-		i++;
-	}
+    
+    while (*dest != '\0') {
+        dest++;
+    }
 
-	dest[i] = src[j];
+    
+    while (*src != '\0') {
+        *dest = *src;
+        dest++;
+        src++;
+    }
 
-	return (dest);
+    
+    *dest = '\0';
+
+    return result;
 }
+
+int main() {
+    char s1[50] = "Hello";
+    char s2[50] = "World!";
+
+    
+    _strcat(s1, s2);
+
+    printf("%s\n", s1);
+
+    return 0;
+}
+
